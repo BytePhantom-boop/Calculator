@@ -1,0 +1,1 @@
+#hello, this is the calculator I made. I actually had several different java projects like a basic calculator, a calculator which calculates nCr, a calculator which calculates any table, a calculator to check prime numbers, a calculator for sum of a special series I like and a factorial calculator, I added all of them into one, as a final calculator, hope you like it.
