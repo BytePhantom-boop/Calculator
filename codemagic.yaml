@@ -1,14 +1,10 @@
 workflows:
-  android-build:
-    name: Android Build
-    max_build_duration: 30
-        jdk: openjdk11
-    scripts:
-      - name: Set Android SDK location
-        script: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: Build Debug APK
-        script: |
-          ./gradlew assembleDebug
-    artifacts:
-      - app/build/outputs/**/*.apk
+instance_type: windows_x2
+max_build_duration: 20
+environment:
+groups:
+ - keystore_credentials
+ - play_store_credentials
+  vars:
+   GOOGLE_PLAY_TRACK: "beta"
+   java: latest
