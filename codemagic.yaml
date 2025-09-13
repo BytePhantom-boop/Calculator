@@ -1,15 +1,16 @@
 workflows:
-  android-workflow:
+  android-build:
     name: Android Build
-    max_build_duration: 60
+    max_build_duration: 30
     environment:
-      sdk: openjdk17
+      android:
+        jdk: openjdk11
     scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
       - name: Build Debug APK
-        script: ./gradlew assembleDebug
+        script: |
+          ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
-    publishing:
-      email:
-        recipients:
-          - f20250443@hyderabad.bits-pilani.ac.in
